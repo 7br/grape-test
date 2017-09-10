@@ -1,0 +1,13 @@
+---
+graph: # Graph specification
+  nfrag: 4
+  type: immutable_vertexcut
+  etype: double
+  vtype: double
+  load_strategy: master_mirror
+  partition_strategy: dbh
+  file_format: dadjrfiles
+  rfile: $GRAPE_TEST/twitter.r4
+  efile: $GRAPE_TEST/twitter.ve
+  vfile: $GRAPE_TEST/twitter.v
+  serialization_prefix: ./twitter_serialization
