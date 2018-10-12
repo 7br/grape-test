@@ -6,10 +6,9 @@ graph: # Graph specification
   vtype: int
   load_strategy: both_out_in
   partition_strategy: prepartitioned
-  file_format: kvfiles
+  file_format: evrfiles
   rfile: $GRAPE_TEST/twitter.r4
-  efile: $GRAPE_TEST/twitter-js.e
-  vfile: $GRAPE_TEST/twitter-js.v
+  efile: $GRAPE_TEST/twitter.e
+  vfile: $GRAPE_TEST/twitter.v
   serialization_prefix: ./twitter_serialization
-  line_parser_so_file_location: ./libjs_kv_parser.so
   kv_leveldb_filepath: ./
