@@ -1,0 +1,13 @@
+# Load graph & app
+twitter = loadgraph("$GRAPE_TEST/twitter.yaml")
+sssp = loadapp("$GRAPE_LIB/sssp.yaml")
+
+# Input query
+sssp.query(twitter, 4, "4")
+
+# Unload app & graph
+unloadapp(sssp)
+unloadgraph(twitter)
+
+# Finally exit
+exit
