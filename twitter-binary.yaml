@@ -1,0 +1,16 @@
+---
+graph: # Graph specification
+  nfrag: 4
+  type: immutable_edgecut
+  etype: double
+  vtype: int
+  load_strategy: both_out_in
+  partition_strategy: prepartitioned
+  file_format: binary-evr
+  eformat: 4|4|16
+  vformat: 8|16
+  rformat: 4|4
+  rfile: $GRAPE_TEST/bin.r
+  efile: $GRAPE_TEST/bin.e
+  vfile: $GRAPE_TEST/bin.v
+  serialization_prefix: ./twitter_serialization
