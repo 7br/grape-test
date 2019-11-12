@@ -1,0 +1,27 @@
+version: 2
+jobs:
+  sync-aws:
+    docker:
+      - image: 7bridgesio/grape-dev
+    steps:
+      - run:
+          name: Sync with AWS
+          command: |
+            pip install awscli --upgrade --user
+            export PATH=~/.local/bin:$PATH
+            source ~/.profile
+            aws configure <<EOF
+            AKIAPDDH3WBAVCWZUP6A
+            9wwc5qBcrQbLtLm7hcoTS8l/xh0pK9HGuYELk3n/
+            cn-north-1
+            test
+            EOF
+            git clone --depth=1 https://github.com/7br/grape-test.git
+            rm -rf grape-test/.git/*
+            aws s3 sync grape-test s3://grape-test --delete
+
+workflows:
+  version: 2
+  deploy:
+    jobs:
+      - sync-aws
