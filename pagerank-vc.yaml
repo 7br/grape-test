@@ -1,0 +1,32 @@
+---
+app: # Application specification
+  name: pagerank
+  so_location: $GRAPE_LIB/libapp_vc_pagerank.so
+
+  # compatible graph spec:
+  graph_etype:
+    - double
+    - float
+  graph_vtype:
+    - double
+    - float
+  graph_type:
+    - immutable_vertexcut
+    # - mutable
+  graph_load_strategy:
+    - master_mirror
+
+  message_strategy: master_gather_aggregate_scatter
+  message_type: pair
+  result_prefix: .
+
+  enable_coordinator_aggregation: false
+  enable_assemble: false
+  enable_result_output: true
+  enable_auto: false
+
+  param:
+    - string
+    - string
+    - string
+    - string

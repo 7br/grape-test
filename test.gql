@@ -1,0 +1,14 @@
+# Load graph & app
+twitter = loadgraph("$GRAPE_TEST/twitter-vc.yaml")
+pr = loadapp("$GRAPE_TEST/pagerank-vc.yaml")
+
+# Input query
+pr.config("enable_result_output", "true")
+pr.query(0.8 0.001 100 0, "im")
+
+# Unload app & graph
+unloadapp(pr)
+unloadgraph(twitter)
+
+# Finally exit
+exit
